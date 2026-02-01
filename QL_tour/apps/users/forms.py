@@ -1,0 +1,12 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+from django import forms
+
+User = get_user_model()
+
+class RegisterForm(UserCreationForm):
+    avatar = forms.ImageField(required=False)
+
+    class Meta:
+        model = User
+        fields = ("username", "email", "avatar", "password1", "password2")
