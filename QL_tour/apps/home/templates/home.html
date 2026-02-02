@@ -2,5 +2,10 @@
 {% extends 'share_layout.html' %} {% block content %}
 <div>
   <h1>Hello, this is a home page!</h1>
+
+  <form method="post" action="logout/">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+  </form>
 </div>
 {% endblock %}

@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.views import View
-# Create your views here.
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class Home(View):
-    def get(self, request):
-        return render(request, 'home.html')
+class Home(LoginRequiredMixin, TemplateView):
+    template_name = 'home.html'
