@@ -1,0 +1,10 @@
+<!doctype html>
+{% extends 'share_layout.html' %} {% block content %}
+<div>
+  <h1>{{ tour.title }}</h1>
+  <p>{{ tour.description }}</p>
+
+  <p>Price: {{ tour.price }}</p>
+  <p>Created at: {{ tour.created_at }}</p>
+</div>
+{% endblock %}

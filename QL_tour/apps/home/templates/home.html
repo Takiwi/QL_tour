@@ -1,11 +1,23 @@
 <!doctype html>
 {% extends 'share_layout.html' %} {% block content %}
 <div>
-  <h1>Hello, this is a home page!</h1>
-
   <form method="post" action="logout/">
     {% csrf_token %}
     <button type="submit">Logout</button>
   </form>
+</div>
+
+<div>
+  {% for tour in tours %}
+  <h3>{{ tour.title }}</h3>
+  <a href="{% url 'tour_detail' tour.id %}">View detail</a>
+  {% endfor %}
+</div>
+
+<div>
+  <h1>Hello, this is a home page!</h1>
+  {% for tour in tours %}
+  <p>{{tour.name}}</p>
+  {% endfor %}
 </div>
 {% endblock %}
