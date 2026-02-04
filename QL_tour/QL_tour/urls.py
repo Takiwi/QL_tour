@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('apps.users.urls')),
     path('', include('apps.home.urls')),
-    path('tour/', include('apps.tours.urls'))
+    path('tours/', include('apps.tours.urls')),
+    path('gis/', include('apps.gis_tool.urls')),
 ]
