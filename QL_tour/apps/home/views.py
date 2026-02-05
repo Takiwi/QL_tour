@@ -13,3 +13,6 @@ class Home(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context['tours'] = Tour.objects.all()
         return context
+
+class About(TemplateView):
+    template_name = 'about.html'

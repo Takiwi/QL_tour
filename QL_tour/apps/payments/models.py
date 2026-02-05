@@ -22,3 +22,6 @@ class Payment(models.Model):
         blank=True
     )
     paid_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Payment {self.transaction_id} for Booking {self.booking.id}"

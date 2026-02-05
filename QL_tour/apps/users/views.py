@@ -5,6 +5,9 @@ from . import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 class Register(View):
     def get(self, request):
@@ -45,3 +48,8 @@ class Login(LoginView):
 
     def get_success_url(self) -> str:
         return reverse_lazy('home')
+
+class CustomLogoutView(View):
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return HttpResponseRedirect(reverse('login'))

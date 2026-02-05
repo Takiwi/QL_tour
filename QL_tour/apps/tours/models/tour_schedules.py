@@ -5,3 +5,6 @@ class TourSchedule(models.Model):
     start_day = models.DateTimeField()
     end_day = models.DateTimeField()
     available_slots = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.tour.title} from {self.start_day} to {self.end_day}"

@@ -9,6 +9,7 @@ fetch("/tours/map/")
 
     tours.forEach((tour) => {
       const marker = L.marker([tour.lat, tour.lng]).addTo(map).bindPopup(`
+          <img src="${tour.thumbnail_url}" alt="${tour.title}" style="width: 100px; height: auto; border-radius: 5px;"/><br>
           <b>${tour.title}</b><br>
           <a href="/tours/detail/${tour.id}">Xem chi tiết</a>
         `);
@@ -20,7 +21,3 @@ fetch("/tours/map/")
       map.fitBounds(bounds);
     }
   });
-
-marker.on("click", () => {
-  window.location.href = `/tours/${tour.id}/`;
-});

@@ -11,3 +11,6 @@ class TourRoute(models.Model):
         geography=True,
         srid=4326
     )
+
+    def __str__(self):
+        return f"Route for {self.tour.title}"

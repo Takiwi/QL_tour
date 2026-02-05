@@ -12,6 +12,7 @@ class TourMapAPI(APIView):
                 "title": t.title,
                 "lat": t.location.y,  # latitude
                 "lng": t.location.x,  # longitude
+                "thumbnail_url": t.thumbnail.url if t.thumbnail else None
             }
             for t in tours
         ])

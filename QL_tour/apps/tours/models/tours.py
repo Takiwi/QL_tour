@@ -18,6 +18,9 @@ class Tour(models.Model):
         geography=True,  
         srid=4326         
     )
-    thumbnail = models.ImageField()
+    thumbnail = models.ImageField(upload_to='thumbnails/')
     status = models.CharField(choices=Status.choices, default=Status.ACTIVE)
     create_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

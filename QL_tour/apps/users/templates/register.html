@@ -1,4 +1,22 @@
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %} {{form}}
-  <button type="submit">Sign up</button>
+<form
+  method="POST"
+  enctype="multipart/form-data"
+  class="container mt-5"
+  style="max-width: 400px"
+>
+  {% csrf_token %}
+  <h1 class="text-center mb-4">Sign Up</h1>
+  <div class="form-floating mb-3">
+    {{ form.username }} {{ form.username.label_tag }}
+  </div>
+  <div class="form-floating mb-3">
+    {{ form.email }} {{ form.email.label_tag }}
+  </div>
+  <div class="form-floating mb-3">
+    {{ form.password1 }} {{ form.password1.label_tag }}
+  </div>
+  <div class="form-floating mb-3">
+    {{ form.password2 }} {{ form.password2.label_tag }}
+  </div>
+  <button type="submit" class="btn btn-primary w-100">Sign up</button>
 </form>

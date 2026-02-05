@@ -1,10 +1,35 @@
 <!doctype html>
-{% extends 'share_layout.html' %} {% block content %}
-<div>
-  <h1>{{ tour.title }}</h1>
-  <p>{{ tour.description }}</p>
+{% extends 'share_layout.html' %} {% load static %} {% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="{{ tour.thumbnail.url }}"
+        alt="{{ tour.title }}"
+        class="img-fluid rounded"
+      />
+    </div>
+    <div class="col-md-6">
+      <h1 class="display-4">{{ tour.title }}</h1>
+      <p class="lead">{{ tour.description }}</p>
+      <hr />
+      <p><strong>Price:</strong> {{ tour.price }} Đồng</p>
+      <p><strong>Duration:</strong> {{ tour.duration }} days</p>
+      <a href="/bookings/create/{{ tour.id }}" class="btn btn-primary btn-lg"
+        >Book Now</a
+      >
+    </div>
+  </div>
 
-  <p>Price: {{ tour.price }}</p>
-  <p>Created at: {{ tour.created_at }}</p>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h2>Tour Highlights</h2>
+      <ul>
+        {% for highlight in tour.highlights %}
+        <li>{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 </div>
 {% endblock %}
